@@ -77,3 +77,21 @@ def handle_uploaded_file_02(file):
             destination.write(chunk)
     
     return load_document(settings.BASE_DIR / "uploads/document2.txt")
+
+# Fonction pour afficher le graphique des statistiques
+def plot_similarity_statistics(word_sim, sentence_sim, common_patterns_count):
+    labels = ['Similarité des mots', 'Similarité des phrases', 'Motifs communs']
+    values = [word_sim, sentence_sim, common_patterns_count]
+    fig, ax = plt.subplots()
+    ax.bar(labels, values, color=['blue', 'green', 'red'])
+    ax.set_ylabel('Pourcentage / Nombre')
+    ax.set_title('Statistiques de similarité entre les documents')
+    for i, v in enumerate(values):
+        ax.text(i, v + 0.5, f"{v:.2f}", ha='center', va='bottom')
+
+    # Sauvegarder le graphique dans un fichier
+    img_path = os.path.join(settings.STATICFILES_DIRS[0], 'similarity_plot.png')
+    plt.savefig(img_path)
+    plt.close()
+    return img_path
+
