@@ -1,7 +1,7 @@
-# Fonction pour charger le contenu d'un document texte
 import re
 
 
+# Fonction pour charger le contenu d'un document texte
 def load_document(filepath : str):
     with open(filepath, 'r', encoding='utf-8') as file:
         return file.read()
@@ -61,3 +61,19 @@ def sentence_similarity(doc1, doc2):
         return 0.0
     
     return (len(common_sentences) / total_sentences) * 100
+
+    # Fonction pour uploader le premier document
+def handle_uploaded_file_01(file):
+    with open(settings.BASE_DIR / "uploads/document1.txt", "wb+") as destination:
+        for chunk in file.chunks():
+            destination.write(chunk)
+    
+    return load_document(settings.BASE_DIR / "uploads/document1.txt")
+
+# Fonction pour uploader le deuxieme document
+def handle_uploaded_file_02(file):
+    with open(settings.BASE_DIR / "uploads/document2.txt", "wb+") as destination:
+        for chunk in file.chunks():
+            destination.write(chunk)
+    
+    return load_document(settings.BASE_DIR / "uploads/document2.txt")
