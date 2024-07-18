@@ -1,0 +1,4 @@
+Ce projet vise à développer une application qui analyse la similarité entre deux documents en 
+utilisant l'algorithme de Boyer-Moore pour rechercher des motifs communs. L'application 
+permettra de charger deux fichiers texte, d'identifier les occurrences de phrases ou de mots 
+similaires, et de fournir des statistiques sur le niveau de similarité entre les documents

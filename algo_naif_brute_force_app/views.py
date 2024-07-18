@@ -1,4 +1,5 @@
 from django.http import HttpRequest
+from django.shortcuts import render
 from .forms import UploadFilesForm
 from .utils import *
 
@@ -19,8 +20,7 @@ def algoNaifBruteForceView(request : HttpRequest) :
             img_path = plot_similarity_statistics(words_sim, sentences_sim, len(common_patterns))
 
             print(img_path)
-            return render(request, 'statistiques.html', {
-                'common_patterns' : common_patterns,
+            return render(request, 'index.html', {
                 'words_sim' : words_sim, 
                 'sentences_sim' : sentences_sim,
                 'graphiques' : 'similarity_plot.png'

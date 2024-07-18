@@ -1,4 +1,7 @@
 import re
+import os
+from django.conf import settings
+from matplotlib import pyplot as plt
 
 
 # Fonction pour charger le contenu d'un document texte
